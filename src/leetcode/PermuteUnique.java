@@ -17,7 +17,7 @@ public class PermuteUnique {
     public static void main(String[] args) {
         PermuteUnique pu=new PermuteUnique();
         //pu.permute(new int[]{1,1,2},0);
-        int[] nums=new int[]{3,3,0,3};
+        int[] nums=new int[]{3,3,3,3};
         //需要先对数组进行一次排序
         Arrays.sort(nums);
         pu.trackBack(nums,0);
@@ -30,6 +30,7 @@ public class PermuteUnique {
         }
         for (int i = 0; i < nums.length; i++) {
             //在遍历时就确定是否重复
+            //若是当前元素的值与前一个相等，则直接跳过（因为数组是有序的）
             if(flag[i]||(i>0&&nums[i]==nums[i-1]&&!flag[i-1])){
                 continue;
             }
