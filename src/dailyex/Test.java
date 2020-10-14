@@ -1,15 +1,15 @@
 package dailyex;
 
+import java.util.regex.Pattern;
+
 public class Test {
     public static void main(String[] args) {
-      /*  System.out.println(Person.hobby);
-        Person person=new Person("张三",25);
-        System.out.println(Person.hobby);
-        Person.hobby="吃饭饭，恶心心";
-        System.out.println(Person.hobby);*/
-        //String s="你好! ";
-        //System.out.println(s.length());
-        String s = "祝你考出好成绩！";
-        System.out.println(s.length());
+        String regex="^(?=^.{3,255}$)[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+$";
+        String domain="adc.sss.c_!";
+        if(!Pattern.matches(regex,domain)){
+            System.out.println("域名不合法！"+domain);
+        }else{
+            System.out.println("域名合法！"+domain);
+        }
     }
 }

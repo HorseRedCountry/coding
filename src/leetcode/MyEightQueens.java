@@ -18,6 +18,28 @@ public class MyEightQueens {
     static int count=0;
 
     public static void main(String[] args) {
+        MyEightQueens meq=new MyEightQueens();
+        meq.eightQueensProblem(0);
+    }
 
+    private void eightQueensProblem(int index) {
+        if(index>=max){
+            count++;
+            return;
+        }
+        for (int i = 0; i < max; i++) {
+            if(judge()){
+                eightQueensProblem(index+1);
+            }
+        }
+    }
+
+    /**
+     * 判断当前位置是否可以摆放皇后
+     * @return
+     */
+    private boolean judge() {
+
+        return true;
     }
 }
