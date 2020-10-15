@@ -120,12 +120,18 @@ public class EightQueens {
             col[i]=false;
         }
     }
-
+    /**
+     * 解法思路：用一个一位数组arr[8]来存储单次可行的摆法。其中arr[i]表示第i行上皇后应该摆放的位置
+     */
+    /**定义行数*/
     int max=8;
+    /**记录解法总数*/
     static int count2=0;
+    /**记录每次可行的摆法*/
     int[] arr=new int[max];
 
     public void layout(int n){
+        //边界条件：即已经到达了最后一行
         if(n==max){
             System.out.println(Arrays.toString(arr));
             count2++;
@@ -133,18 +139,41 @@ public class EightQueens {
         }
         for (int i = 0; i < max; i++) {
             arr[n]=i;
+            //若当前行的摆法成立，则继续摆下一行
             if(judge(n)){
+                //递归调用
                 layout(n+1);
             }
         }
     }
 
+    /**
+     * 摆皇后的位置判断
+     * @param n 摆放皇后的位置
+     * @return
+     */
     private boolean judge(int n) {
+        //核心是判断部分
         for (int i = 0; i < n; i++) {
+            //arr[i]==arr[n]：依次判断当前位置可有与之前已经摆好的皇后处于同一列
+            //Math.abs()：取绝对值。第二个判断即判断之前已摆好的皇后是否有和当前将要摆放的皇后处于同一行的情形
             if(arr[i]==arr[n]||Math.abs(n-i)==Math.abs(arr[i]-arr[n])){
                 return false;
             }
         }
         return true;
     }
+    /**
+     * 输出：
+     * [0, 4, 7, 5, 2, 6, 1, 3]
+     * [0, 5, 7, 2, 6, 3, 1, 4]
+     * [0, 6, 3, 5, 7, 1, 4, 2]
+     * [0, 6, 4, 7, 1, 3, 5, 2]
+     * [1, 3, 5, 7, 2, 0, 6, 4]
+     * [1, 4, 6, 0, 2, 7, 5, 3]
+     * ...............
+     * [7, 2, 0, 5, 1, 4, 6, 3]
+     * [7, 3, 0, 2, 5, 1, 6, 4]
+     * 八皇后问题共有92解法
+     */
 }
