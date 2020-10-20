@@ -1,5 +1,9 @@
 package leetcode;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * @author Major Tom
  * @date 2020/10/16 22:21
@@ -7,6 +11,6 @@ package leetcode;
  */
 public class ReverseList {
     public static void main(String[] args) {
-
+        List<Integer> list=new LinkedList<>();
     }
 }

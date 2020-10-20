@@ -2,50 +2,79 @@ package leetcode;
 /**
  * @author Major Tom
  * @date 2020/10/16 22:27
- * @description 不带头结点链表的定义及其相关操作
+ * @description 带头结点尾结点链表的定义及其相关操作
  */
 public class List {
-
-    public static void main(String[] args) {
-        List list=new List();
-        Node head=list.generateList(new int[]{1,2,3,4,5});
-        list.printList(head);
-    }
+    /**头结点*/
+    Node head=null;
+    Node tail=null;
     /**
      * 从数组生成链表（生成的链表为正序）
      * @param arr 数组
      * @return 链表的头结点
      */
-    Node generateList(int[] arr){
+    void generateList(int[] arr){
         //头结点
-        Node head=new Node(arr[0]);
-        for (int i = arr.length-1; i> 0; i--) {
+        head=new Node(arr[0]);
+        tail=head;
+        for (int i = 1; i< arr.length;i++) {
             Node node=new Node(arr[i]);
-            node.next=head.next;
-            head.next=node;
+            tail.next=node;
+            tail=node;
         }
-        return head;
     }
 
     /**
-     * 添加结点（默认至尾部）
-     * @param val 结点数据值
+     * 添加结点（添加至链表尾）
+     * @param val
      */
-    void addNode(int val){
+    void addTail(int val){
         Node node=new Node(val);
-
+        if(head==null||tail==null){
+            head=node;
+            tail=node;
+        }
+        tail.next=node;
+        tail=node;
     }
 
+    /**
+     * 添加结点（添加至链表头）
+     * @param val
+     */
+    void addHead(int val){
+        Node node=new Node(val);
+        if(head==null||tail==null){
+            head=node;
+            tail=node;
+        }
+        node.next=head;
+        head=node;
+    }
+    void removeTail(){
+        Node flag=head;
+        while (flag.next!=tail){
+            flag=flag.next;
+        }
+        flag.next=null;
+        tail=flag;
+    }
+
+    void removeHead(){
+        head=head.next;
+    }
     /**
      * 打印链表
-     * @param head 链表头结点
      */
-    void printList(Node head){
+    void printList(){
         Node node=head;
-        while (node!=null){
-            System.out.print(node.val+" ");
+        System.out.print("链表序列为：");
+        while (node.next!=null){
+            System.out.print(node.val+"---->");
             node=node.next;
         }
+        System.out.print(node.val);
+        System.out.println();
     }
 
     private static class Node {
