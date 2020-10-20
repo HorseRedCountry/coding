@@ -16,21 +16,4 @@ public class ReverseList {
         list.reverse();
         list.printList();
     }
-
-    /**
-     * 反转链表
-     */
-    void reverse() {
-        List.Node second=head.next;
-        List.Node third=second.next;
-        head.next=null;
-        while (second.next!=null){
-            second.next=head;
-            head=second;
-            second=third;
-            third=second.next;
-        }
-        second.next=head;
-        head=second;
-    }
 }
