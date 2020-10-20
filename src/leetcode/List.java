@@ -77,6 +77,23 @@ public class List {
         System.out.println();
     }
 
+    /**
+     * 反转链表
+     */
+    void reverse() {
+        Node second=head.next;
+        Node third=second.next;
+        head.next=null;
+        while (second.next!=null){
+            second.next=head;
+            head=second;
+            second=third;
+            third=second.next;
+        }
+        second.next=head;
+        head=second;
+    }
+
     private static class Node {
         /**数据域*/
         int val;

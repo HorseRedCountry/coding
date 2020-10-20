@@ -2,7 +2,6 @@ package leetcode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * @author Major Tom
@@ -11,6 +10,27 @@ import java.util.List;
  */
 public class ReverseList {
     public static void main(String[] args) {
-        List<Integer> list=new LinkedList<>();
+        List list=new List();
+        list.generateList(new int[]{1,2,3,4,5});
+        list.printList();
+        list.reverse();
+        list.printList();
+    }
+
+    /**
+     * 反转链表
+     */
+    void reverse() {
+        List.Node second=head.next;
+        List.Node third=second.next;
+        head.next=null;
+        while (second.next!=null){
+            second.next=head;
+            head=second;
+            second=third;
+            third=second.next;
+        }
+        second.next=head;
+        head=second;
     }
 }
