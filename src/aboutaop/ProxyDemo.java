@@ -3,7 +3,7 @@ package aboutaop;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 
-/*
+/**
     测试
     结果：中介：搜集房源......
          中介：对比市场价格......

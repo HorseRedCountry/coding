@@ -8,6 +8,7 @@ public class RentHouseProxy implements RentHouse{
     public RentHouseProxy(RentHouse rentHouse){
         this.rentHouse=rentHouse;
     }
+    @Override
     public void rentHouse() {
         System.out.println("中介：搜集房源......");
         System.out.println("中介：对比市场价格......");
