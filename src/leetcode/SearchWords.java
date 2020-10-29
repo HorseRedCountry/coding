@@ -48,7 +48,7 @@ public class SearchWords {
     }
 
     /**
-     *
+     *深度优先探测
      * @param board 字符数组
      * @param visited 是否已访问
      * @param row 行
