@@ -7,7 +7,7 @@ package leetcode;
  */
 public class MaxProfit {
     public static void main(String[] args) {
-        System.out.println(maxProfit(new int[]{7,1,5,3,6,4}));
+        System.out.println(maxProfit(new int[]{1,2,3,4,5}));
     }
 
     /**
@@ -19,7 +19,7 @@ public class MaxProfit {
     private static int maxProfit(int[] price) {
         int max=0;
         //扫描一遍，只要后一天的价格比前一天大，就把价格差值相加
-        for (int i = 1; i < price.length-1; i++) {
+        for (int i = 1; i <= price.length-1; i++) {
             if (price[i]>price[i-1]){
                 max+=price[i]-price[i-1];
             }
