@@ -31,14 +31,3 @@ public class InorderTraversal {
     }
 }
 
-/**
- * 定义二叉树
- */
-class TreeNode{
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode(int val){
-        this.val=val;
-    }
-}
