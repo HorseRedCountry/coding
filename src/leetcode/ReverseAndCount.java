@@ -7,7 +7,8 @@ package leetcode;
  */
 public class ReverseAndCount {
     public static void main(String[] args) {
-        System.out.println(reverseAndCount(100,400));
+        System.out.println((char)(1+'a'));
+        //System.out.println(reverseAndCount(100,400));
     }
     private static int reverseAndCount(int num1,int num2){
         //先将数字转化为字符串，然后直接reverse
